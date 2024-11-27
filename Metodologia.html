@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodología</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo del encabezado */
+        .header {
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Estilo de los botones */
+        .header .home-button, .header .resultados-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .header .home-button {
+            left: 20px;
+        }
+
+        .header .resultados-button {
+            right: 20px;
+        }
+
+        .header .home-button:hover, .header .resultados-button:hover {
+            background-color: gray;
+            color: white;
+        }
+
+        /* Botones fijos */
+        .fixed-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1050; /* Asegura que los botones estén por encima del carrusel */
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .fixed-button:hover {
+            opacity: 1; /* Aumenta la visibilidad al pasar el cursor */
+        }
+
+        .prev-button {
+            left: 10px;
+        }
+
+        .next-button {
+            right: 10px;
+        }
+
+        /* Estilo del pie de página */
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 30px 20px; /* Pie de página más grande */
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <div class="header">
+        <a href="index.html" class="home-button">Home</a>
+        METODOLOGÍA
+        <a href="Resultados.html" class="resultados-button">Resultados</a>
+    </div>
+
+    <!-- Contenedor del carrusel -->
+    <div class="container mt-4">
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicadores/dots -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- Carrusel de imágenes -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../startbootstrap-grayscale-gh-pages/images/METODOLOGIA1.jpg" alt="Los Angeles" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="../startbootstrap-grayscale-gh-pages/images/METODOLOGIA2.jpg" alt="Chicago" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="../startbootstrap-grayscale-gh-pages/images/METODOLOGIA3.jpg" alt="New York" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="../startbootstrap-grayscale-gh-pages/images/METODOLOGIA4.jpg" alt="New York" class="d-block w-100">
+                </div>
+            </div>
+
+            <!-- Controles de navegación -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Botones fijos -->
+    <button class="fixed-button prev-button" onclick="prevSlide()">&#9664; Anterior</button>
+    <button class="fixed-button next-button" onclick="nextSlide()">Siguiente &#9654;</button>
+
+    <!-- Pie de página -->
+    <footer class="footer mt-4">
+        <p>Descripción breve: Este carrusel muestra imágenes representativas de ciudades destacadas.</p>
+        <p>Referencias: Imágenes de ejemplo obtenidas de <a href="https://placeholder.com" style="color: lightgray;">Placeholder.com</a>.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Función para ir a la imagen anterior
+        function prevSlide() {
+            const carousel = document.querySelector('#demo');
+            const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+            carouselInstance.prev();
+        }
+
+        // Función para ir a la siguiente imagen
+        function nextSlide() {
+            const carousel = document.querySelector('#demo');
+            const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+            carouselInstance.next();
+        }
+    </script>
+</body>
+</html>
